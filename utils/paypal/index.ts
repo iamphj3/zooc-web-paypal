@@ -1,4 +1,4 @@
-// import checkoutNodeJssdk from '@paypal/checkout-server-sdk';
+import checkoutNodeJssdk from '@paypal/checkout-server-sdk';
 
 export const setEnvironment = () => {
   const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
@@ -10,14 +10,14 @@ export const setEnvironment = () => {
   return { clientId, clientSecret };
 };
 
-// export const configureEnvironment = () => {
-//   const { clientId, clientSecret } = setEnvironment();
+export const configureEnvironment = () => {
+  const { clientId, clientSecret } = setEnvironment();
 
-//   return process.env.NODE_ENV === 'production'
-//     ? new checkoutNodeJssdk.core.LiveEnvironment(clientId, clientSecret)
-//     : new checkoutNodeJssdk.core.SandboxEnvironment(clientId, clientSecret);
-// };
+  return process.env.NODE_ENV === 'production'
+    ? new checkoutNodeJssdk.core.LiveEnvironment(clientId, clientSecret)
+    : new checkoutNodeJssdk.core.SandboxEnvironment(clientId, clientSecret);
+};
 
-// export const client = () => {
-//   return new checkoutNodeJssdk.core.PayPalHttpClient(configureEnvironment());
-// };
+export const client = () => {
+  return new checkoutNodeJssdk.core.PayPalHttpClient(configureEnvironment());
+};

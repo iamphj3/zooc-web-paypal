@@ -1,17 +1,11 @@
 import { styled } from 'styled-components';
 
-import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
-
-import { setEnvironment } from '../../utils/paypal/index';
+import { PayPalButtons } from '@paypal/react-paypal-js';
 
 const Paypal = () => {
-  const { clientId } = setEnvironment();
-
   return (
     <StPaypalWrapper>
-      <PayPalScriptProvider options={{ clientId }}>
-        <PayPalButtons style={{ layout: 'horizontal' }} />
-      </PayPalScriptProvider>
+      <PayPalButtons style={{ layout: 'horizontal' }} />
     </StPaypalWrapper>
   );
 };
